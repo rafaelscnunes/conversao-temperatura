@@ -16,7 +16,7 @@ spec:
         - name: conversao-temperatura
           image: rafaelscnunes/conversao-temperatura:v1
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 
 ---
 
@@ -29,6 +29,6 @@ spec:
     app: conversao-temperatura
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 8080
       nodePort: 30000 
   type: LoadBalancer
