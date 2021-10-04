@@ -6,7 +6,10 @@ const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
 const conversor = require('./convert')
 const bodyParser = require('body-parser');
+const config = require('./config/system-life');
 
+app.use(config.middlewares.healthMid);
+app.use('/', config.routers);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine', 'ejs');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); 
